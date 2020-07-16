@@ -9,6 +9,3 @@ class Player(Room):
 
 	def __str__(self):
 		return f'{self.name} is currently at the {self.room}'
-
-	def __repr__(self):
-		return self.room

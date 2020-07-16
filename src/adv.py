@@ -42,7 +42,17 @@ room['treasure'].s_to = room['narrow']
 
 player = Player('player1', room['outside'])
 
-repr(player)[1]
+
+
+# def get_key(my_dict, val): 
+#     for key, value in my_dict.items(): 
+#          if val == value: 
+#              return key 
+
+# def get_room(room, current_room):
+#    place = get_key(room, current_room)
+
+#    return room[place]
 
 # Write a loop that:
 #
@@ -55,15 +65,18 @@ repr(player)[1]
 #
 # If the user enters "q", quit the game.
 
-def direction_checker(direction):
-
 
 q = False
 
 while q == False:
-	direction = input("Which direction would you like to move? [(N)orth, (E)ast, (S)outh, (W)est, (Q)uit]")
+	print(player.room)
+	direction = input("Which direction would you like to move? [(N)orth, (E)ast, (S)outh, (W)est, (Q)uit]").lower()
+	move = direction[0]+'_to'
+	if 'q' in direction:
+		q = True
 
-	if direction.lower().contains('q'):
-		q == True
+	elif hasattr(player.room, move):
+		player.room = getattr(player.room, move)
 
 	else:
+		print('Cannot go that way at this time')
