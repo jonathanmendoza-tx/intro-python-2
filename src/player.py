@@ -1,11 +1,11 @@
-from room import Room
 # Write a class to hold player information, e.g. what room they are in
 # currently.
 
-class Player(Room):
-	def __init__(self, name, room):
+class Player:
+	def __init__(self, name, room, items = []):
 		self.name = name
 		self.room = room
+		self.items = items
 
 	def __str__(self):
 		return f'{self.name} is currently at the {self.room}'
